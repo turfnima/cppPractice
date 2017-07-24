@@ -5,34 +5,6 @@
 //first decide the purpose of the code:
 /*a list of nodes, with add, delete, modify
 
-add:
-	pushBack----------------------------------------------------------------check
-	random generate---------------------------------------------------------check
-	pushFront---------------------------------------------------------------!negative
-print:
-	printList---------------------------------------------------------------check
-
-
-modify:
-	change the data to another value----------------------------------------check
-	drop the node with wanted value-----------------------------------------check
-	reverse the list--------------------------------------------------------check
-	reorder the list
-
-delete:
-	search------------------------------------------------------------------check
-	delete------------------------------------------------------------------check
-	removeall---------------------------------------------------------------check
-
-in addition:
-	destructor--------------------------------------------------------------check
-	+ overload
-	[] overload
-	abstract class
-	copy constructor
-
-data type:
-	we start with int data, then we practice the abstract
 
 
 */
