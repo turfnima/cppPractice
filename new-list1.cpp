@@ -16,7 +16,7 @@ print:
 modify:
 	change the data to another value----------------------------------------check
 	drop the node with wanted value-----------------------------------------check
-	reverse the list
+	reverse the list--------------------------------------------------------check
 	reorder the list
 
 delete:
