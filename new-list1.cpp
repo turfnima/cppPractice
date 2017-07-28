@@ -105,6 +105,7 @@ public:
 	void reverseAll();
 	void reverseAll2();
 	void remove_all(int v);
+	Node* return_Nth_Node(int n);
 	
 };
 //reverse all nodes.
@@ -126,6 +127,19 @@ void List::reverseAll() {
 	//p1 is the last node
 	//the new head.
 	head = p1;
+}
+//return a node at Nth position
+//what happens if we cant find it? we cannot return an empty node
+//but we have to return something, so call that nodeX.
+//if n is smaller than 0, return nodeX;
+//if n is 0 return head.
+//if n is 1 return head->next
+//if n is n return (Node* return_Nth_Node (n-1)->next)
+// if we cannot find the node, return nodeX
+Node* List:: return_Nth_Node(int n) {
+	//figure out what nodeX is first
+	Node* nodeX = new Node();
+	return nodeX;
 }
 
 //reverse all, another method
@@ -351,7 +365,7 @@ void List::pushFront(Node* n) {
 	int main() {
 		//some test results.
 		List t1,t2;
-		
+
 		t1.pushBack(7);
 		t1.pushBack(1);
 		t1.pushBack(3);
@@ -361,7 +375,8 @@ void List::pushFront(Node* n) {
 		cout<<t1.searchVal(1);
 
 		cout <<"==============="<< endl;
-		
+		cout << "===test return Nth Node" << endl;
+		cout<<"the val is "<<t1.return_Nth_Node(-1)->val<<" if it is -1 then it is correct"<<endl;
 		cout << "====Random generating list===========" << endl;
 		t2.random_store(40,5);
 		cout << "====Delete test===========" << endl;
