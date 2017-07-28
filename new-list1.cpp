@@ -18,6 +18,7 @@ modify:
 	drop the node with wanted value-----------------------------------------check
 	reverse the list--------------------------------------------------------check
 	reorder the list
+	return Nth node
 
 delete:
 	search------------------------------------------------------------------check
@@ -128,9 +129,10 @@ void List::reverseAll() {
 	//the new head.
 	head = p1;
 }
+
+//Node* return_Nth_node(int n) can be very helpful for [] overload
 //return a node at Nth position
-//what happens if we cant find it? we cannot return an empty node
-//but we have to return something, so call that nodeX.
+//what happens if we cant find it? we can return a new node()
 //if n is smaller than 0, return nodeX;
 //if n is 0 return head.
 //if n is 1 return head->next
@@ -139,6 +141,9 @@ void List::reverseAll() {
 Node* List:: return_Nth_Node(int n) {
 	//figure out what nodeX is first
 	Node* nodeX = new Node();
+	if (n < 0) return nodeX;
+	else if (n == 0) return this->head;
+	else return return_Nth_Node(n - 1)->next;
 	return nodeX;
 }
 
@@ -375,12 +380,13 @@ void List::pushFront(Node* n) {
 		cout<<t1.searchVal(1);
 
 		cout <<"==============="<< endl;
-		cout << "===test return Nth Node" << endl;
-		cout<<"the val is "<<t1.return_Nth_Node(-1)->val<<" if it is -1 then it is correct"<<endl;
+
 		cout << "====Random generating list===========" << endl;
 		t2.random_store(40,5);
 		cout << "====Delete test===========" << endl;
 		t2.printList();
+		cout << "===test return Nth Node" << endl;
+		cout<<"the 7th node->val is "<<t2.return_Nth_Node(7)->val<<endl;
 		cout << "===============" << endl;
 		t2.deleteVal(4);
 		cout << "====Remove all test===========" << endl;
