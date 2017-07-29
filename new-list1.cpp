@@ -1,6 +1,9 @@
 //Turfnima
 //list practice
-//2017 7 13
+//2017 7 28
+
+//known issue: I dont know how to catch exceptions in c++
+
 
 //first decide the purpose of the code:
 /*a list of nodes, with add, delete, modify
@@ -28,10 +31,10 @@ delete:
 in addition:
 	destructor--------------------------------------------------------------check
 	+ overload
-	[] overload
+	[] overload-------------------------------------------------------------check
 	abstract class
 	copy constructor
-
+	exceptions
 data type:
 	we start with int data, then we practice the abstract
 
@@ -107,8 +110,18 @@ public:
 	void reverseAll2();
 	void remove_all(int v);
 	Node* return_Nth_Node(int n);
+	int & operator[](int k);//return int variable (or reference) rather than returning an int value
+
 	
 };
+
+
+// list_name[int n] would return the val in nth node
+int & List:: operator[](int k) {
+	if (k < 0) cout << "ERROR: this node "<<k<< " does not exist" << endl;
+	return return_Nth_Node(k)->val;
+}
+
 //reverse all nodes.
 //using 2 nodes
 void List::reverseAll() {
@@ -130,6 +143,8 @@ void List::reverseAll() {
 	head = p1;
 }
 
+
+//should include a exception catch
 //Node* return_Nth_node(int n) can be very helpful for [] overload
 //return a node at Nth position
 //what happens if we cant find it? we can return a new node()
@@ -387,6 +402,9 @@ void List::pushFront(Node* n) {
 		t2.printList();
 		cout << "===test return Nth Node" << endl;
 		cout<<"the 7th node->val is "<<t2.return_Nth_Node(7)->val<<endl;
+
+		cout << "===test [] operator overload" << endl;
+		cout << "the 7th node->val is " << t2[7] << endl;
 		cout << "===============" << endl;
 		t2.deleteVal(4);
 		cout << "====Remove all test===========" << endl;
